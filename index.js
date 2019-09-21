@@ -25,13 +25,6 @@ app.all("*", function(req, res, next) {
 //设置固定值
 let ip = "http://192.168.3.122:";
 let port = 8888;
-
-let indexController = require("./controllers/IndexController");
-app.get("/index", indexController.index);
-
-let playController = require("./controllers/PlayController");
-app.get("/comment", playController.comment);
-
 let  PhotoController= require("./controllers/PhotoController");
 app.get("/photo", PhotoController.photo);
 //4,进行监听
