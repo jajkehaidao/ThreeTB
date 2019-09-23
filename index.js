@@ -12,7 +12,7 @@ let urlencodedParser = bodyParser.urlencoded({
 //5,设置静态文件
 app.use(express.static("public"));
 //6,设置跨域访问
-app.all("*", function(req, res, next) {
+app.all("*", function (req, res, next) {
   //res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Origin", "http://192.168.3.122:3000");
   res.header("Access-Control-Allow-Origin", "*");
@@ -25,9 +25,15 @@ app.all("*", function(req, res, next) {
 //设置固定值
 let ip = "http://192.168.3.122:";
 let port = 8888;
-let  PhotoController= require("./controllers/PhotoController");
+
+let CourseController = require("./controllers/CourseController");
+app.get("/course", CourseController.course);
+
+
+
+let PhotoController = require("./controllers/PhotoController");
 app.get("/photo", PhotoController.photo);
 //4,进行监听
-app.listen(port, function() {
+app.listen(port, function () {
   console.log("启动");
 });
